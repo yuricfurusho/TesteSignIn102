@@ -3,5 +3,9 @@
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
-    <string name="title_activity_third_party_sign_in">ThirdPartySignInActivity</string>
+    <string name="title_activity_google_sign_in">GoogleSignInActivity</string>
+
+    <string name="google_sign_in_signing_in">Conectando</string>
+    <string name="google_sign_in_signing_out">Desconectando</string>
+
 </resources>
