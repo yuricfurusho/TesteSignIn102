@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- View visibility -->
+    <integer name="GSIGN_VISIBLE">0</integer>
+    <integer name="GSIGN_INVISIBLE">1</integer>
+    <integer name="GSIGN_GONE">2</integer>
+
+    <integer name="GSign_status_visibility">@integer/GSIGN_GONE</integer>
+    <integer name="GSign_btn_logout_visibility">@integer/GSIGN_GONE</integer>
+</resources>
