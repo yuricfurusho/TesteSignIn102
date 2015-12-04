@@ -1,6 +1,7 @@
 package yuricfurusho.testesignin102;
 
 import android.app.Activity;
+import android.app.Dialog;
 import android.content.Intent;
 import android.content.IntentSender;
 import android.os.Bundle;
@@ -13,6 +14,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.GooglePlayServicesUtil;
 import com.google.android.gms.common.Scopes;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.api.Scope;
@@ -150,6 +152,10 @@ public class GoogleSignInFragment extends Fragment implements
     }
 
     private void onSignInClicked() {
+        if (!googlePlasyServicesIsUpdated()){
+            return;
+        };
+
         if (mGoogleApiClient.isConnected()) {
             return;
         }
@@ -161,6 +167,20 @@ public class GoogleSignInFragment extends Fragment implements
 
         // Show a message to the user that we are signing in.
         mStatus.setText(R.string.google_sign_in_signing_in);
+    }
+
+    private boolean googlePlasyServicesIsUpdated() {
+        Integer resultCode = GooglePlayServicesUtil.isGooglePlayServicesAvailable(getActivity());
+        if (resultCode == ConnectionResult.SUCCESS) {
+            return true;
+        } else {
+            Dialog dialog = GooglePlayServicesUtil.getErrorDialog(resultCode, getActivity(), 0);
+            if (dialog != null) {
+                //This dialog will help the user update to the latest GooglePlayServices
+                dialog.show();
+            }
+        }
+        return false;
     }
 
     private void onSignOutClicked() {
